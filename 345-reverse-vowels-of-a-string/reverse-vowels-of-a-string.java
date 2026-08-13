@@ -1,36 +1,22 @@
 class Solution {
     public String reverseVowels(String s) {
-
-        char[] a = s.toCharArray();
-
-        int left = 0;
-        int right = a.length - 1;
-
-        while (left < right) {
-            while (left < right &&
-                  !(a[left] == 'a' || a[left] == 'e' || a[left] == 'i' ||
-                    a[left] == 'o' || a[left] == 'u' ||
-                    a[left] == 'A' || a[left] == 'E' || a[left] == 'I' ||
-                    a[left] == 'O' || a[left] == 'U')) {
-                left++;
+        char a[]=s.toCharArray();
+        int l=0;
+        int r=a.length-1;
+        while(l<r){
+            while(l<r && !(a[l]=='a'||a[l]=='e'||a[l]=='i'||a[l]=='o'||a[l]=='u'||a[l]=='A'||a[l]=='E'||a[l]=='I'||a[l]=='O'||a[l]=='U')){
+                l++;
             }
-            while (left < right &&
-                  !(a[right] == 'a' || a[right] == 'e' || a[right] == 'i' ||
-                    a[right] == 'o' || a[right] == 'u' ||
-                    a[right] == 'A' || a[right] == 'E' || a[right] == 'I' ||
-                    a[right] == 'O' || a[right] == 'U')) {
-                right--;
+            while(l<r && !(a[r]=='a'||a[r]=='e'||a[r]=='i'||a[r]=='o'||a[r]=='u'||a[r]=='A'||a[r]=='E'||a[r]=='I'||a[r]=='O'||a[r]=='U')){
+                r--;
             }
-
-            // Swap the vowels
-            char temp = a[left];
-            a[left] = a[right];
-            a[right] = temp;
-
-            left++;
-            right--;
+            char temp=a[l];
+            a[l]=a[r];
+            a[r]=temp;
+            r--;
+            l++;
+             
         }
-
         return new String(a);
     }
 }
